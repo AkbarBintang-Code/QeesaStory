@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Toggle Dark Mode
-    darkModeToggle.addEventListener('click', () => {
+    darkModeToggle.addEventListener('change', () => {
         body.classList.toggle('dark-mode');
         let theme = 'light-mode';
         if (body.classList.contains('dark-mode')) {
