@@ -348,6 +348,10 @@ body.dark-mode .services {
     background-color: var(--dark-bg);
 }
 
+body.dark-mode .services p{
+    color: var(--light-bg);
+}
+
 .service-carousel {
     margin-top: 50px;
 }
