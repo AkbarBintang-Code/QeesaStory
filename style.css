@@ -1,0 +1,950 @@
+/* General Styling */
+:root {
+    /* -- Light Mode Colors (Updated based on Qeesa Story Style Guide) -- */
+    --light-bg: #F9F8F5; /* Soft Beige / Warm Light Ivory */
+    --light-text: #2B2B2B; /* Dark Charcoal / Rich Black */
+    --light-accent: #7C1C1C; /* Deep Wine Red (for CTA Active) */
+    --light-header-bg: rgba(249, 248, 245, 0.95); /* Semi-transparent Soft Beige */
+    --light-card-bg: #fff; /* Keep white for cards, fits whitespace concept */
+    --light-border: #C4BFB8; /* Soft Greige for borders/dividers */
+    --light-secondary-text: #757575; /* Muted Warm Gray for secondary text */
+
+    --dark-bg: #1E1A17;
+    --dark-text: #f0f0f0;
+    --dark-accent: #D9C5B2;
+    --dark-header-bg: rgba(26, 26, 26, 0.95);
+    --dark-card-bg: #2a2a2a;
+    --dark-border: #333;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--light-bg);
+    color: var(--light-text);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    line-height: 1.6;
+}
+
+body.dark-mode {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--light-accent);
+    transition: color 0.3s ease;
+}
+
+body.dark-mode a {
+    color: var(--dark-accent);
+}
+
+a:hover {
+    color: var(--light-text);
+}
+
+body.dark-mode a:hover {
+    color: var(--dark-text);
+}
+
+.btn {
+    display: inline-block;
+    /* Button background: Deep Wine Red */
+    background-color: var(--light-accent);
+    color: #fff; /* Text white for active CTA */
+    padding: 12px 25px;
+    border-radius: 5px; /* Rounded rectangle */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+    font-weight: 600; /* Semi-bold */
+    text-transform: uppercase; /* All caps */
+}
+
+body.dark-mode .btn {
+    background-color: var(--dark-accent);
+    color: var(--light-bg); /* Text light-bg in dark mode btn */
+}
+
+.btn:hover {
+    /* Button hover background: Soft Greige */
+    background-color: var(--light-border);
+    /* Button hover text: Dark Charcoal / Rich Black */
+    color: var(--light-text);
+    /* transform: translateY(-2px); Mengaktifkan kembali transform jika diinginkan */
+}
+
+body.dark-mode .btn:hover {
+    background-color: var(--light-accent); /* Warna hover untuk dark mode */
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: inherit; /* Akan mengikuti warna teks body */
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.8em;
+    padding-bottom: 10px;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--light-accent);
+}
+
+body.dark-mode h2::after {
+    background-color: var(--dark-accent);
+}
+
+/* Header */
+.header {
+    background-color: var(--light-header-bg);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    backdrop-filter: blur(5px);
+}
+
+body.dark-mode .header {
+    background-color: var(--dark-header-bg);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Pastikan item di header sejajar secara vertikal */
+}
+
+.logo {
+    margin: 0;
+    font-size: 2em;
+    font-weight: 700;
+}
+
+.logo a {
+    color: var(--light-text);
+}
+
+body.dark-mode .logo a {
+    color: var(--dark-text);
+}
+
+.nav {
+    display: flex; /* Jadikan nav sebagai flex container */
+    align-items: center; /* Sejajarkan ul dan toggle secara vertikal */
+    gap: 30px; /* Memberi jarak antara menu navigasi dan tombol dark mode */
+}
+
+.nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav ul li {
+    margin-left: 30px;
+}
+
+.nav ul li a {
+    color: var(--light-text);
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+body.dark-mode .nav ul li a {
+    color: var(--dark-text);
+}
+
+.nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--light-accent);
+    transition: width 0.3s ease-in-out;
+}
+
+body.dark-mode .nav ul li a::after {
+    background-color: var(--dark-accent);
+}
+
+.nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Dark Mode Toggle */
+.dark-mode-toggle {
+    background: none;
+    border: 1px solid var(--light-text);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.2em;
+    margin-left: 20px;
+    transition: border-color 0.3s ease;
+}
+
+body.dark-mode .dark-mode-toggle {
+    border-color: var(--dark-text);
+}
+
+.dark-mode-toggle .sun-icon {
+    display: block;
+}
+
+.dark-mode-toggle .moon-icon {
+    display: none;
+}
+
+body.dark-mode .dark-mode-toggle .sun-icon {
+    display: none;
+}
+
+body.dark-mode .dark-mode-toggle .moon-icon {
+    display: block;
+}
+
+/* Hamburger Menu for Mobile */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--light-text);
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .hamburger span {
+    background-color: var(--dark-text);
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: url('img/back.png') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    /* Overlay untuk keterbacaan teks */
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay gelap */
+}
+
+body.dark-mode .hero::before {
+    background-color: rgba(0, 0, 0, 0.7); /* Lebih gelap di dark mode */
+}
+
+.hero-content {
+    z-index: 1;
+    max-width: 800px;
+}
+
+.hero-content h2 {
+    font-size: 4.5em;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    color: #F5F0E1 /* Pastikan selalu putih */
+}
+
+.hero-content h2::after {
+    background-color: #fff; /* Garis bawah putih */
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    margin-bottom: 40px;
+    color: #F5F0E1;
+}
+
+/* About Section */
+.about {
+    text-align: center;
+}
+
+body.dark-mode .about {
+    background-color: var(--dark-card-bg);
+}
+
+.about p {
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+    font-size: 1.1em;
+}
+
+body.dark-mode .about p {
+    color: #fff;
+}
+
+/* Services Section */
+.services {
+    background-color: var(--light-card-bg);
+    text-align: center;
+}
+
+body.dark-mode .services {
+    background-color: var(--dark-bg);
+}
+
+.service-carousel {
+    margin-top: 50px;
+}
+
+.service-item {
+    background-color: var(--light-bg);
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 10px; /* Margin antar slide */
+    text-align: center;
+    height: auto; /* Pastikan tinggi fleksibel */
+    display: flex !important; /* Penting untuk slick-carousel item */
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+body.dark-mode .service-item {
+    background-color: var(--dark-card-bg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+body.dark-mode .service-item:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.service-item h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    color: var(--light-accent);
+    margin-bottom: 15px;
+}
+
+.service-item h3 a {
+    color: inherit; /* Warisi warna dari h3 */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+body.dark-mode .service-item h3 {
+    color: var(--dark-accent);
+}
+
+.service-item p {
+    font-size: 1em;
+    color: var(--light-text);
+}
+
+body.dark-mode .service-item p {
+    color: var(--dark-text);
+}
+
+
+/* Slick Carousel custom navigation */
+.slick-prev:before, .slick-next:before {
+    /* Carousel arrows match Deep Wine Red [cite: 3] */
+    color: var(--light-accent) !important;
+    font-size: 30px !important;
+    margin-left: -50px;
+    margin-right: -50px;
+}
+
+body.dark-mode .slick-prev:before, body.dark-mode .slick-next:before {
+    color: var(--dark-accent) !important;
+}
+
+.slick-dots li button:before {
+    color: var(--light-border) !important; /* Warna dot tidak aktif, pakai soft greige */
+    font-size: 10px !important;
+}
+
+body.dark-mode .slick-dots li button:before {
+    color: var(--dark-border) !important;
+}
+
+.slick-dots li.slick-active button:before {
+    color: var(--light-accent) !important; /* Warna dot aktif, pakai deep wine red */
+}
+
+body.dark-mode .slick-dots li.slick-active button:before {
+    color: var(--dark-accent) !important;
+}
+
+
+
+/* Portfolio Section */
+.portfolio {
+    background-color: var(--light-bg);
+    text-align: center;
+}
+
+body.dark-mode .portfolio {
+    background-color: var(--dark-card-bg);
+}
+
+/* Filter buttons */
+#myBtnContainer {
+    display: flex; /* Menggunakan flexbox untuk pengaturan tombol */
+    flex-wrap: wrap; /* Memungkinkan tombol untuk pindah ke baris baru jika tidak cukup ruang */
+    justify-content: center; /* Pusatkan tombol-tombol secara horizontal */
+    gap: 10px; /* Jarak antar tombol */
+    margin-bottom: 30px; /* Jarak bawah dari tombol ke konten portofolio */
+    padding: 0 15px; /* Sedikit padding di sisi untuk mobile */
+}
+
+.btn {
+    background-color: var(--light-card-bg); /* Atau warna dasar tombol Anda */
+    color: var(--light-text);
+    padding: 10px 15px;
+    border: 1px solid var(--light-border); /* Tambahkan border untuk pemisahan */
+    cursor: pointer;
+    font-size: 0.9em; /* Sedikit lebih kecil untuk mobile */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    border-radius: 5px; /* Sedikit sudut membulat */
+    white-space: nowrap; /* Mencegah teks tombol patah baris */
+}
+
+body.dark-mode .btn {
+    background-color: var(--dark-card-bg);
+    color: var(--dark-text);
+    border-color: var(--dark-accent);
+}
+
+.btn.active {
+    background-color: var(--light-accent); /* Warna aktif */
+    color: #fff; /* Teks putih saat aktif */
+    border-color: var(--light-accent);
+}
+
+body.dark-mode .btn.active {
+    background-color: var(--light-accent);
+    color: var(--light-bg); /* Teks gelap saat aktif di dark mode */
+    border-color: var(--light-accent);
+}
+
+.btn:hover:not(.active) {
+    background-color: var(--light-border); /* Warna hover */
+    color: var(--light-text);
+}
+
+body.dark-mode .btn:hover:not(.active) {
+    background-color: var(--dark-border);
+    color: var(--dark-text);
+}
+
+
+/* Contact Section */
+.contact {
+    background-color: var(--light-card-bg);
+    border-top: 1px solid var(--light-border);
+    text-align: center; /* Ini membuat paragraf dan form terpusat */
+}
+
+body.dark-mode .contact {
+    background-color: var(--dark-bg);
+}
+
+.contact p {
+    color: #000000;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    font-size: 1.1em;
+}
+
+body.dark-mode .contact p {
+    color: #ffffff;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto; /* Ini sudah menengahkan form block-nya */
+    padding: 30px;
+    background-color: var(--light-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    /* Tambahkan atau pastikan ini: */
+    text-align: left; /* Ini penting agar konten di dalam form sejajar kiri */
+}
+
+body.dark-mode .contact-form {
+    background-color: var(--dark-bg);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    padding-right: 20px;
+    text-align: left; /* Sudah ada, pastikan tidak ada override */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--light-border);
+    border-radius: 5px;
+    background-color: #fff;
+    color: var(--light-text);
+    font-size: 1em;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea {
+    border-color: var(--dark-border);
+    background-color: var(--dark-card-bg);
+    color: var(--dark-text);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--light-accent);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+body.dark-mode .form-group input:focus,
+body.dark-mode .form-group textarea:focus {
+    border-color: var(--dark-accent);
+    box-shadow: 0 0 0 3px rgba(137, 207, 240, 0.2);
+}
+
+.contact-form .btn {
+    /* Background button submit form: Deep Wine Red */
+    background-color: var(--light-accent);
+    color: #fff; /* Text white */
+    width: auto;
+    padding: 12px 40px;
+    display: block;
+    margin: 20px auto 0 auto;
+}
+
+.contact-form .btn:hover{
+    /* Hover button submit form: Soft Greige */
+    background-color: var(--light-border);
+    color: var(--light-text); /* Hover text: Dark Charcoal */
+}
+
+body.dark-mode .btn { /* Periksa apakah ini mempengaruhi .contact-form .btn di dark mode */
+    background-color: var(--dark-accent);
+    color: #000000;
+}
+
+.social-links {
+    margin-top: 30px;
+    font-size: 1.1em;
+}
+
+.social-links a {
+    margin: 0 15px;
+    font-weight: 600;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--dark-card-bg);
+    color: var(--dark-text);
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 50px;
+    border-top: 1px solid var(--dark-border);
+}
+
+body.dark-mode .footer {
+    background-color: #000000; /* Darker footer in dark mode */
+}
+
+.footer p {
+    color: #ffffff;
+    margin: 0;
+    font-size: 0.9em;
+}
+
+/* Center website */
+.main {
+  max-width: 1000px; /* Batasi lebar maksimal konten utama */
+  margin: auto;
+}
+
+h1 {
+  font-size: 50px;
+  word-break: break-all;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Ini membuat konten berada di tengah */
+}
+
+/* Add padding BETWEEN each column (if you want) */
+.row,
+.row > .column {
+  padding: 8px;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  width: 25%;
+  display: none; /* Tetap disembunyikan default */
+  padding: 8px;
+  box-sizing:content-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  margin-left: 10px;
+  background-color: var(--light-card-bg); /* Apply light mode card background */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Default light mode shadow */
+}
+
+body.dark-mode .column {
+    background-color: #D9C5B2; /* Dark mode card background */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Darker shadow for dark mode */
+}
+
+h4 {
+  color: #000000;
+}
+
+p{
+    color: #000000;
+}
+
+.column:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15); /* Light mode hover shadow */
+}
+
+body.dark-mode .column:hover {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4); /* Dark mode hover shadow */
+}
+
+/* Clear floats after rows */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.show {
+    display: block;
+}
+
+/* Style the Image Used to Trigger the Modal */
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9); /* Opaque black overlay */
+}
+
+body.dark-mode .modal {
+    background-color: rgba(0,0,0,0.95); /* Slightly more opaque in dark mode if desired */
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  animation: zoom 0.6s;
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+#caption {
+  text-align: center;
+  color: #ccc; /* Needs dark mode adjustment */
+  padding: 10px;
+}
+
+body.dark-mode #caption {
+    color: var(--dark-text); /* Use dark mode text color */
+}
+
+.close {
+  position: absolute;
+  right: 35px;
+  color: white; /* Needs dark mode adjustment */
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+body.dark-mode .close {
+    color: white; /* Use dark mode accent color for close button */
+}
+
+body.dark-mode .close:hover, body.dark-mode .close:focus{
+    color: #ff0000; /* Use dark mode accent color for close button */
+}
+
+.close:hover,
+.close:focus {
+  color: #ff0000; /* Specific error color, keep as is */
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header .container {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    .logo {
+        flex-grow: 1;
+        text-align: left;
+        margin-bottom: 0;
+        font-size: 1.8em;
+    }
+
+    .hamburger {
+        display: flex; /* Ini HARUS 'flex' di mobile */
+        order: 3;
+    }
+
+    .dark-mode-toggle {
+        display: flex; /* Ini HARUS 'flex' di mobile */
+        margin-left: auto;
+        margin-right: 15px;
+        order: 2;
+    }
+
+    .nav {
+        display: none; /* Sembunyikan secara default */
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--light-header-bg);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        padding: 20px 0;
+        transition: all 0.3s ease;
+        z-index: 999;
+    }
+
+    body.dark-mode .nav {
+        background-color: var(--dark-header-bg);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    }
+
+    .nav.active {
+        display: flex;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    body.dark-mode .nav ul {
+        border-color: var(--dark-border);
+    }
+
+    .nav ul li {
+        margin: 15px 0;
+    }
+
+    .nav ul li a {
+        font-size: 1.2em;
+    }
+
+    .hero-content h2 {
+        font-size: 3em;
+    }
+
+    .hero-content p {
+        font-size: 1.2em;
+    }
+
+    .section-padding {
+        padding: 50px 0;
+    }
+
+    h1 { /* Added from new snippet */
+        font-size: 3.5em; /* Adjust h1 font size for smaller screens */
+    }
+
+    h2 {
+        padding-top: 2rem;
+        font-size: 2.2em;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    /* For smaller screens, Slick Carousel will handle the layout,
+       but ensure service-item basic styling still applies */
+    .service-item {
+        max-width: 90%; /* Allow items to take more width within carousel */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .column { /* Added from new snippet */
+        width: 48%; /* Two columns on tablets */
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+
+    /* Modal content adjustment for smaller screens, if different from main responsive area */
+    .modal-content {
+        width: 90%; /* Adjust width for smaller screens in modal */
+    }
+
+    .about p {
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+    font-size: 0.9em;
+}
+}
+
+@media (max-width: 480px) {
+    .hero-content h2 {
+        font-size: 2.5em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 10px;
+    }
+
+    .social-links a {
+        margin: 0 10px;
+        font-size: 0.9em;
+    }
+
+    h1 { /* Added from new snippet */
+        font-size: 2.5em; /* Adjust h1 font size for mobile */
+    }
+
+    /* For very small screens, Slick Carousel will handle the layout,
+       but ensure service-item basic styling still applies */
+    .service-item {
+        max-width: 95%; /* Allow items to take more width within carousel */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .column { /* Added from new snippet */
+        width: 96%; /* Single column on mobile */
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+
+    .modal-content {
+        width: 95%; /* Further adjust width for very small screens in modal */
+    }
+}

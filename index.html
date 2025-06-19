@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qeesa Story</title>
+    <link rel="website icon" type="png" href="img/qeesa.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <meta name="description" content="Layanan jasa fotografi profesional untuk pre-wedding, pernikahan, produk, dan acara spesial Anda. Abadikan momen tak terlupakan bersama kami.">
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo"><a href="#hero">Qeesa Story</a></h1>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#hero">Beranda</a></li>
+                    <li><a href="#about">Tentang Kami</a></li>
+                    <li><a href="#services">Layanan</a></li>
+                    <li><a href="#portfolio">Portofolio</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+                <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle Dark Mode">
+                    <span class="sun-icon">☀️</span>
+                    <span class="moon-icon">🌙</span>
+                </button>
+            </nav>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h2>Your moment deserves a story. Let’s create it together.</h2>
+                <p>Queesa Story</p>
+                <a href="#contact" class="btn">📸 Book Your Session Now </a>
+            </div>
+        </section>
+
+        <section id="about" class="about section-padding">
+            <div class="container">
+                <h2>Tentang Kami</h2>
+                <p>📸✨ Why Choose <b>Qeesa Story?</b>
+                  At Qeesa Story, we <b>don’t just take photos</b> — we <b>craft timeless stories</b>.
+                  Born from trust and a shared vision to grow and capture precious memories, <b>we believe every moment deserves to be told beautifully and sincerely</b>.</p>
+                  <p>🌟 Your <b>story is unique</b> — and so is our <b>dedication</b>.
+                  Our team goes beyond being photographers and videographers; we become your <b>trusted storytellers</b> and <b>helpful partners</b>. From your <b>graduation milestone</b> to the <b>day you say "I do"</b> , we ensure <b>every detail</b> is taken care of with <b>warmth and professionalism</b>.</p>
+                  <p>🎓 Graduation? That’s our <b>signature.</b>
+                  We are <b>proud</b> to be one of the most <b>trusted graduation storytellers</b> in <b>town</b> , with <b>countless students celebrating</b> their big day through<b>our lenses</b>.</p>
+            </div>
+        </section>
+
+        <section id="services" class="services section-padding">
+            <div class="container">
+                <h2>Layanan Kami</h2>
+                <p>🚁 High-end equipment, stunning drone shots, and personalized moodboards — all to bring your dream vision to life.</p>
+                <div class="service-carousel">
+                    <div class="service-item">
+                        <a href="#portfolio" onclick="scrollToPortfolioAndFilter('wisuda');"><h3>Graduation and Hipocratic Oath</h3></a>
+                        <p>Celebrate the day your dreams come true. We frame your proudest moment into stories you’ll tell forever.</p>
+                    </div>
+                    <div class="service-item">
+                        <a href="#portfolio" onclick="scrollToPortfolioAndFilter('lamaran');"><h3>Engagement</h3></a>
+                        <p>Mark the beginning of your forever with images as genuine and beautiful as your love story.</p>
+                    </div>
+                    <div class="service-item">
+                        <a href="#portfolio" onclick="scrollToPortfolioAndFilter('produk');"><h3>Catalogue</h3></a>
+                        <p>Showcase your brand’s essence through stylish, captivating visuals that speak louder than words.</p>
+                    </div>
+                    <div class="service-item">
+                        <a href="#portfolio" onclick="scrollToPortfolioAndFilter('ulangtahun');"><h3>Birthday</h3></a>
+                        <p>Another year older, another reason to smile. Let’s keep your happiest moments alive, one birthday at a time.</p>
+                    </div>
+                    <div class="service-item">
+                        <a href="#portfolio" onclick="scrollToPortfolioAndFilter('acara');"><h3>Event</h3></a>
+                        <p>From laughter to applause, we capture the magic in every moment — so you can relive your event anytime.</p>
+                    </div>
+                    <div class="service-item">
+                        <a href="#portfolio" onclick="scrollToPortfolioAndFilter('buku');"><h3>Yearbook</h3></a>
+                        <p>Your school memories deserve more than pages — they deserve a story worth flipping through again and again.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="portfolio section-padding">
+          <h2>Portfolio</h2>
+          <div id="myBtnContainer">
+            <button class="btn active" onclick="filterSelection('all')" data-category="all"> Show all</button>
+            <button class="btn" onclick="filterSelection('wisuda')" data-category="wisuda"> Graduation and Hipocratic Oath</button>
+            <button class="btn" onclick="filterSelection('lamaran')" data-category="lamaran"> Engagement</button>
+            <button class="btn" onclick="filterSelection('produk')" data-category="produk"> Catalogue</button>
+            <button class="btn" onclick="filterSelection('ulangtahun')" data-category="ulangtahun"> Birthday</button>
+            <button class="btn" onclick="filterSelection('acara')" data-category="acara"> Event</button>
+            <button class="btn" onclick="filterSelection('buku')" data-category="buku"> Yearbook</button>
+          </div>
+
+          <div class="row">
+
+            <!-- WISUDA -->
+            <div class="column wisuda">
+              <div class="content">
+                <img class="clickable-img" src="/img/Graduation/graduation1.jpg" alt="INI FOTO WISUDA YA!!!" style="width:100%">
+                <h4>Mountains</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>
+            <div class="column wisuda">
+              <div class="content">
+                <img class="clickable-img" src="/img/Graduation/graduation2.JPG" alt="INI FOTO WISUDA YA!!! 1" style="width:100%">
+                <h4>Lights</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>
+            <div class="column wisuda">
+              <div class="content">
+                <img class="clickable-img" src="/img/Graduation/graduation3.JPG" alt="INI FOTO WISUDA YA!!! 2" style="width:100%">
+                <h4>Forest</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>
+            <div class="column wisuda">
+              <div class="content">
+                <img class="clickable-img" src="/img/Graduation/graduation4.jpg" alt="INI FOTO WISUDA YA!!! 2" style="width:100%">
+                <h4>Forest</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>
+            <div class="column wisuda">
+              <div class="content">
+                <img class="clickable-img" src="/img/Graduation/graduation5.jpg" alt="INI FOTO WISUDA YA!!! 2" style="width:100%">
+                <h4>Forest</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>
+
+            <!-- LAMARAN -->
+            <div class="column lamaran">
+              <div class="content">
+                <img class="clickable-img" src="/img/Engagement/engagement1.jpg" alt="INI FOTO LAMARAN YA!!!" style="width:100%">
+                <h4>Retro</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>
+            <div class="column lamaran">
+              <div class="content">
+                <img class="clickable-img" src="/img/Engagement/engagement2.jpg" alt="INI FOTO LAMARAN YA!!! 1" style="width:100%">
+                <h4>Fast</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>
+            <div class="column lamaran">
+              <div class="content">
+                <img class="clickable-img" src="/img/Engagement/engagement.jpg" alt="INI FOTO LAMARAN YA!!! 2" style="width:100%">
+                <h4>Classic</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>
+            <div class="column lamaran">
+              <div class="content">
+                <img class="clickable-img" src="/img/Engagement/engagement3.jpg" alt="INI FOTO LAMARAN YA!!! 2" style="width:100%">
+                <h4>Classic</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>
+            <div class="column lamaran">
+              <div class="content">
+                <img class="clickable-img" src="/img/Engagement/engagement4.jpg" alt="INI FOTO LAMARAN YA!!! 2" style="width:100%">
+                <h4>Classic</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>            
+
+            <!-- PRODUK -->
+            <div class="column produk">
+              <div class="content">
+                <img class="clickable-img" src="/img/Catalogue/cafe/cafe12.jpg" alt="INI FOTO produk YA!!!" style="width:100%">
+                <h4>Girl</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>
+            <div class="column produk">
+              <div class="content">
+                <img class="clickable-img" src="/img/Catalogue/fashion/fashion.jpg" alt="INI FOTO produk YA!!! 1" style="width:100%">
+                <h4>Man</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>
+            <div class="column produk">
+              <div class="content">
+                <img class="clickable-img" src="img/Catalogue/product/product3.jpg" alt="INI FOTO produk YA!!! 2" style="width:100%">
+                <h4>Woman</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>
+
+            <!-- ULANG TAHUN -->
+            <div class="column ulangtahun">
+              <div class="content">
+                <img class="clickable-img" src="/img/Birthday/ulangtahun1.jpg" alt="INI FOTO ulangtahun YA!!!" style="width:100%">
+                <h4>Tree</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>
+            <div class="column ulangtahun">
+              <div class="content">
+                <img class="clickable-img" src="/img/Birthday/ulangtahun2.jpg" alt="INI FOTO ulangtahun YA!!! 1" style="width:100%">
+                <h4>Clouds</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>
+            <div class="column ulangtahun">
+              <div class="content">
+                <img class="clickable-img" src="/img/Birthday/ulangtahun3.jpg" alt="INI FOTO ulangtahun YA!!! 2" style="width:100%">
+                <h4>Rain</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>
+
+            <!-- ACARA -->
+            <div class="column acara">
+              <div class="content">
+                <img class="clickable-img" src="/img/Event/event1.jpg" alt="INI FOTO ACARA YA!!!" style="width:100%">
+                <h4>Pillow</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>
+            <div class="column acara">
+              <div class="content">
+                <img class="clickable-img" src="/img/Event/event2.jpg" alt="INI FOTO ACARA YA!!! 1" style="width:100%">
+                <h4>Bed</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>
+            <div class="column acara">
+              <div class="content">
+                <img class="clickable-img" src="/img/Event/event3.jpg" alt="INI FOTO ACARA YA!!! 2" style="width:100%">
+                <h4>Blanket</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>
+            <div class="column acara">
+              <div class="content">
+                <img class="clickable-img" src="/img/Event/event4.jpg" alt="INI FOTO ACARA YA!!! 2" style="width:100%">
+                <h4>Blanket</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>
+            <div class="column acara">
+              <div class="content">
+                <img class="clickable-img" src="/img/Event/event5.jpg" alt="INI FOTO ACARA YA!!! 2" style="width:100%">
+                <h4>Blanket</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>
+
+            <!-- BUKU -->
+            <div class="column buku">
+              <div class="content">
+                <img class="clickable-img" src="/img/Yearbook/year1.jpg" alt="INI FOTO buku YA!!!" style="width:100%">
+                <h4>Tshirt</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>
+            <div class="column buku">
+              <div class="content">
+                <img class="clickable-img" src="/img/Yearbook/year2.jpg" alt="INI FOTO buku YA!!! 1" style="width:100%">
+                <h4>Jacket</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>
+            <div class="column buku">
+              <div class="content">
+                <img class="clickable-img" src="/img/Yearbook/year3.jpg" alt="INI FOTO buku YA!!! 2" style="width:100%">
+                <h4>Hoodie</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>
+            <div class="column buku">
+              <div class="content">
+                <img class="clickable-img" src="/img/Yearbook/year4.jpg" alt="INI FOTO buku YA!!! 2" style="width:100%">
+                <h4>Hoodie</h4>
+                <p>Lorem ipsum dolor..</p>
+              </div>
+            </div>
+          </div>
+
+          <div id="myModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="img01">
+            <div id="caption"></div>
+          </div>
+        </section>
+
+        <section id="contact" class="contact section-padding">
+            <div class="container">
+                <h2>Hubungi Kami</h2>
+                <p>Tertarik dengan layanan kami? Jangan ragu untuk menghubungi kami melalui formulir di bawah ini atau melalui media sosial kami.</p>
+                <form
+                action="https://formspree.io/f/mwpbqzjr"
+                method="POST"
+                class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nama :</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="number">No Telepon :</label>
+                        <input type="number" id="number" name="number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Pesan :</label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Kirim Pesan</button>
+                </form>
+                <div class="social-links">
+                    <p>Temukan kami di :</p>
+                    <a href="https://www.instagram.com/qeesastory/" target="_blank" aria-label="Instagram" >Instagram</a>
+                    <a href="https://wa.me/628113107474?text=Halo%20saya%20ingin%20bertanya%20pricelist%20foto%20dong%20plis..." target="_blank" aria-label="WhatsApp">WhatsApp</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Qeesa Story. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
